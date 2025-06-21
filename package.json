@@ -1,8 +1,11 @@
 {
-  "name": "coin-flip-royale-stable",
-  "version": "1.0.2",
+  "name": "coin-flip-royale-final",
+  "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@9.1.0",
+  "engines": {
+    "node": "18.17.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -27,7 +30,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^9.4.0",
+    "eslint": "^8.57.0",
     "eslint-config-next": "14.2.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
