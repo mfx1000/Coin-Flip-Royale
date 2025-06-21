@@ -1,35 +1,28 @@
-import { WhopApp } from "@whop/react/components";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// FIXED: Changed the font from the non-existent 'Geist' to the standard 'Inter' font.
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { WhopIframeSdkProvider } from "@whop/react";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
+// Initialize the Inter font with the 'latin' subset.
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Whop App",
-	description: "My Whop App",
+  title: "Coin Flip Royale",
+  description: "High-stakes coin flip tournaments on Whop.",
 };
 
 export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
-	return (
-		<html lang="en" suppressHydrationWarning>
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
-				<WhopApp>{children}</WhopApp>
-			</body>
-		</html>
-	);
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      {/* FIXED: Apply the correct font class name to the body tag. */}
+      <body className={inter.className}>
+        <WhopIframeSdkProvider>{children}</WhopIframeSdkProvider>
+      </body>
+    </html>
+  );
 }
